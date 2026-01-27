@@ -29,7 +29,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(42, 42, 42, 0.95);
+            background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -38,7 +38,7 @@
         nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 40px;
+            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -47,37 +47,21 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0;
-            color: white;
-            font-size: 22px;
-            font-weight: 300;
-            letter-spacing: 1px;
         }
         
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             background: transparent;
             border: 2px solid white;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: 400;
-            font-size: 20px;
-            margin-right: 15px;
-        }
-        
-        .logo-text {
-            font-size: 20px;
-            color: white;
             font-weight: 300;
-            letter-spacing: 1px;
-        }
-        
-        .logo-bracket {
-            color: white;
-            font-weight: 400;
+            font-size: 20px;
+            letter-spacing: 2px;
         }
         
         nav ul {
@@ -98,12 +82,12 @@
         }
         
         nav ul li a:hover {
-            color: #ddd;
+            color: #1abc9c;
         }
         
         /* Hero Slider */
         .hero-slider {
-            margin-top: 90px;
+            margin-top: 0;
             height: 650px;
             position: relative;
             overflow: hidden;
@@ -115,7 +99,7 @@
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
             background-size: cover;
@@ -141,8 +125,9 @@
             z-index: 2;
             text-align: left;
             color: white;
-            max-width: 900px;
+            max-width: 650px;
             padding: 40px;
+            margin-left: 100px;
             animation: slideUp 1s ease-out;
         }
         
@@ -161,8 +146,9 @@
             font-size: 13px;
             letter-spacing: 1px;
             font-weight: 300;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             opacity: 0.95;
+            line-height: 1.6;
         }
         
         .slide-title {
@@ -170,18 +156,19 @@
             font-weight: 300;
             margin-bottom: 35px;
             line-height: 1.2;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
         
         .slide-btn {
             display: inline-block;
-            padding: 14px 40px;
+            padding: 12px 35px;
             background: transparent;
             color: white;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 400;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             border: 2px solid white;
+            border-radius: 0;
             transition: all 0.3s ease;
         }
         
@@ -192,7 +179,7 @@
         
         .slider-nav {
             position: absolute;
-            bottom: 40px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -207,382 +194,472 @@
             background: rgba(255,255,255,0.5);
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid white;
         }
         
         .slider-dot.active {
             background: white;
         }
         
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1abc9c;
+            color: white;
+            padding: 25px 40px;
+            text-align: center;
+            z-index: 999;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .cookie-banner button {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cookie-banner button:hover {
+            opacity: 1;
+        }
+        
         /* About Section */
         .about-section {
-            padding: 100px 40px;
-            background: white;
+            padding: 120px 40px 110px;
+            background: linear-gradient(135deg, #f8fffe 0%, #e8f5f3 100%);
             text-align: center;
         }
         
-        .about-image {
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-        }
-        
         .about-logo {
-            max-width: 200px;
-            margin: 0 auto 30px;
-        }
-        
-        .about-logo img {
-            width: 100%;
-            height: auto;
+            width: 260px;
+            height: 85px;
+            margin: 0 auto 45px;
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 23px;
+            font-weight: 700;
+            border-radius: 6px;
+            box-shadow: 0 12px 35px rgba(26, 188, 156, 0.25);
+            letter-spacing: 1px;
         }
         
         .section-label {
-            font-size: 11px;
-            letter-spacing: 2.5px;
-            color: #999;
-            font-weight: 400;
-            margin-bottom: 30px;
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #1abc9c;
+            font-weight: 600;
+            margin-bottom: 35px;
             text-transform: uppercase;
         }
         
         .about-text {
             max-width: 780px;
-            margin: 0 auto 80px;
-            font-size: 16px;
+            margin: 0 auto 85px;
+            font-size: 15px;
             color: #777;
-            line-height: 1.8;
+            line-height: 1.9;
         }
         
         /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-            max-width: 1100px;
-            margin: 0 auto 60px;
+            gap: 70px;
+            max-width: 1150px;
+            margin: 0 auto;
         }
         
         .service-box {
             text-align: center;
+            transition: transform 0.4s ease;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-12px);
         }
         
         .service-title {
-            font-size: 26px;
+            font-size: 24px;
             color: #333;
-            font-weight: 300;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            letter-spacing: -0.3px;
         }
         
         .service-subtitle {
-            font-size: 13px;
-            color: #999;
-            font-weight: 400;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
+            font-size: 12px;
+            color: #1abc9c;
+            font-weight: 600;
+            margin-bottom: 28px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
         
         .service-link {
             display: inline-block;
-            padding: 12px 35px;
-            background: transparent;
-            color: #333;
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 1.5px;
+            padding: 13px 32px;
+            background: #f8f8f8;
+            color: #1abc9c;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            border: 1px solid #ddd;
+            border-radius: 4px;
             transition: all 0.3s ease;
         }
         
         .service-link:hover {
-            background: #333;
+            background: #1abc9c;
             color: white;
-            border-color: #333;
+            box-shadow: 0 6px 18px rgba(26, 188, 156, 0.35);
+            transform: translateY(-2px);
         }
         
         /* Portfolio Section */
         .portfolio-section {
-            padding: 100px 40px;
-            background: #f9f9f9;
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9f7 50%, #e3f2ef 100%);
         }
         
         .section-title {
             text-align: center;
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 300;
             color: #333;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             letter-spacing: -0.5px;
         }
         
         .view-more {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
         
         .view-more a {
-            color: #666;
-            font-size: 13px;
-            font-weight: 400;
-            letter-spacing: 1px;
+            color: #1abc9c;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             transition: all 0.3s ease;
-            border-bottom: 1px solid #666;
-            padding-bottom: 2px;
+            position: relative;
+            padding-bottom: 3px;
         }
         
-        .view-more a:hover {
-            color: #333;
+        .view-more a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #1abc9c;
+            transition: all 0.3s ease;
+        }
+        
+        .view-more a:hover::after {
+            width: 0;
         }
         
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1200px;
+            gap: 35px;
+            max-width: 1250px;
             margin: 0 auto;
         }
         
         .portfolio-item {
             background: white;
+            border-radius: 6px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+            transition: all 0.45s ease;
             cursor: pointer;
-            text-align: center;
         }
         
         .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-12px);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.16);
         }
         
         .portfolio-image {
             width: 100%;
-            height: 280px;
-            background: white;
+            height: 240px;
+            background: linear-gradient(135deg, #d4ede8, #b8e5dd);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px;
+            font-size: 19px;
+            font-weight: 700;
+            color: #16a085;
+            transition: all 0.45s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1.5px;
         }
         
-        .portfolio-image img {
-            max-width: 80%;
-            max-height: 80%;
-            object-fit: contain;
+        .portfolio-item:hover .portfolio-image {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            color: white;
+        }
+        
+        .portfolio-image::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.12);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.7s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-image::after {
+            width: 600px;
+            height: 600px;
         }
         
         .portfolio-name {
-            padding: 25px;
+            padding: 28px;
             font-size: 16px;
             font-weight: 400;
-            color: #333;
-            border-top: 1px solid #f0f0f0;
+            color: #444;
+            text-align: center;
+            letter-spacing: 0.3px;
         }
         
         /* Testimonials */
         .testimonials-section {
-            padding: 100px 40px;
-            background: white;
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #fdfffe 0%, #f0faf8 100%);
         }
         
         .testimonials-intro {
             text-align: center;
             max-width: 680px;
-            margin: 0 auto 60px;
-            font-size: 16px;
+            margin: 0 auto 75px;
+            font-size: 15px;
             color: #777;
             line-height: 1.8;
         }
         
         .testimonial {
-            max-width: 900px;
-            margin: 0 auto 35px;
-            padding: 40px 50px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            padding: 50px 55px;
             background: #fafafa;
-            border-left: 3px solid #ddd;
-            transition: all 0.3s ease;
+            border-left: 5px solid #1abc9c;
+            border-radius: 6px;
+            transition: all 0.35s ease;
         }
         
         .testimonial:hover {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border-left-color: #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+            transform: translateX(8px);
+            background: #f7f7f7;
         }
         
         .testimonial-text {
             font-size: 15px;
-            line-height: 1.9;
+            line-height: 2;
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             font-style: italic;
         }
         
         .testimonial-author {
-            font-size: 13px;
-            font-weight: 400;
-            color: #333;
-            letter-spacing: 0.5px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1abc9c;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
         }
         
         /* Clients Grid */
         .clients-section {
-            padding: 80px 40px;
-            background: #f9f9f9;
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #e8f6f3 0%, #d4ede8 50%, #c5e8e1 100%);
         }
         
         .clients-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 25px;
-            max-width: 1200px;
+            gap: 35px;
+            max-width: 1250px;
             margin: 0 auto;
         }
         
         .client-box {
-            height: 120px;
+            height: 110px;
             background: white;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
-            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: all 0.35s ease;
+            font-weight: 600;
+            color: #bbb;
+            font-size: 13px;
+            letter-spacing: 0.5px;
         }
         
         .client-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-        
-        .client-box img {
-            max-width: 80%;
-            max-height: 60px;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: all 0.3s ease;
-        }
-        
-        .client-box:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            color: #1abc9c;
+            background: #fcfcfc;
         }
         
         /* Contact Section */
         .contact-section {
-            padding: 100px 40px;
-            background: white;
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            color: white;
             text-align: center;
         }
         
         .contact-title {
-            font-size: 42px;
+            font-size: 44px;
             font-weight: 300;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             letter-spacing: -0.5px;
-            color: #333;
         }
         
-        .contact-phone {
-            font-size: 24px;
+        .contact-subtitle {
+            font-size: 16px;
             font-weight: 300;
-            margin-bottom: 60px;
-            letter-spacing: 0.5px;
-        }
-        
-        .contact-phone a {
-            color: #333;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-phone a:hover {
-            color: #666;
+            margin-bottom: 75px;
+            letter-spacing: 0.3px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 75px;
         }
         
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            max-width: 1000px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1300px;
             margin: 0 auto;
         }
         
         .contact-box {
-            background: #f9f9f9;
-            padding: 50px 40px;
-            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 45px 30px;
+            border-radius: 10px;
+            transition: all 0.35s ease;
+            color: #333;
         }
         
         .contact-box:hover {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            background: white;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .contact-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
         }
         
         .contact-box h3 {
-            font-size: 26px;
-            font-weight: 300;
-            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 12px;
             letter-spacing: -0.3px;
             color: #333;
         }
         
+        .response-time {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1abc9c;
+            margin-bottom: 18px;
+            letter-spacing: 0.3px;
+        }
+        
         .contact-box p {
-            font-size: 15px;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            color: #777;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+            color: #666;
         }
         
         .contact-btn {
             display: inline-block;
-            padding: 14px 40px;
-            background: #333;
+            padding: 14px 35px;
+            background: #1abc9c;
             color: white;
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 5px;
             transition: all 0.3s ease;
         }
         
         .contact-btn:hover {
-            background: #555;
+            background: #16a085;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(26, 188, 156, 0.4);
         }
         
         /* Footer */
         footer {
-            padding: 60px 40px 40px;
+            padding: 85px 40px 45px;
             background: #2a2a2a;
-            color: #999;
+            color: #888;
             text-align: center;
         }
         
         .footer-logo {
-            max-width: 150px;
-            margin: 0 auto 30px;
-        }
-        
-        .footer-logo img {
-            width: 100%;
-            height: auto;
-        }
-        
-        .copyright {
-            font-size: 12px;
-            color: #777;
-            letter-spacing: 0.3px;
-            margin-bottom: 30px;
+            width: 220px;
+            height: 70px;
+            margin: 0 auto 40px;
+            background: #1abc9c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 19px;
+            font-weight: 700;
+            border-radius: 6px;
+            letter-spacing: 1px;
         }
         
         .footer-text {
             max-width: 900px;
-            margin: 0 auto;
+            margin: 0 auto 35px;
+            font-size: 12.5px;
+            line-height: 2;
+            color: #999;
+        }
+        
+        .copyright {
+            padding-top: 40px;
+            border-top: 1px solid #3a3a3a;
             font-size: 11px;
-            line-height: 1.9;
-            color: #666;
+            color: #777;
+            letter-spacing: 0.3px;
         }
         
         /* Responsive */
@@ -590,30 +667,39 @@
             .services-grid,
             .portfolio-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 50px;
             }
             
             .clients-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
+            
+            .slide-content {
+                margin-left: 50px;
+            }
         }
         
         @media (max-width: 768px) {
             nav ul {
-                gap: 20px;
+                gap: 18px;
             }
             
             nav ul li a {
-                font-size: 12px;
+                font-size: 11px;
             }
             
             .slide-title {
                 font-size: 38px;
             }
             
+            .slide-content {
+                margin-left: 20px;
+            }
+            
             .services-grid,
             .portfolio-grid,
             .contact-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .clients-grid {
@@ -627,7 +713,6 @@
         <nav>
             <div class="logo">
                 <div class="logo-icon">{ W }</div>
-                <div class="logo-text">the <span class="logo-bracket">{web}</span> elite</div>
             </div>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -641,18 +726,18 @@
     </header>
 
     <div class="hero-slider" id="home">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80')">
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221920%22 height=%22650%22%3E%3Crect fill=%22%23333%22 width=%221920%22 height=%22650%22/%3E%3C/svg%3E')">
             <div class="slide-content">
                 <div class="slide-subtitle">We have helped merchants from all over the world get started on or move over to Shopify</div>
                 <h1 class="slide-title">Shopify Experts</h1>
-                <a href="#services" class="slide-btn">Learn More</a>
+                <a href="https://www.webelite.co.za/shopify" class="slide-btn">Learn More</a>
             </div>
         </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&q=80')">
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221920%22 height=%22650%22%3E%3Crect fill=%22%23444%22 width=%221920%22 height=%22650%22/%3E%3C/svg%3E')">
             <div class="slide-content">
                 <div class="slide-subtitle">Modern, creative websites to reflect your business and brand</div>
                 <h1 class="slide-title">Responsive Website<br>Design & Development</h1>
-                <a href="#services" class="slide-btn">Learn More</a>
+                <a href="https://www.webelite.co.za/websites" class="slide-btn">Learn More</a>
             </div>
         </div>
         <div class="slider-nav">
@@ -661,12 +746,13 @@
         </div>
     </div>
 
+    <div class="cookie-banner" id="cookieBanner">
+        Hello! We just wanted to let you know that we use cookies on this website. These cookies are there to enhance your experience on our website and for us to continue being elite! By using our website you agree to our use of cookies. I mean who doesn't like cookies!
+        <button onclick="closeCookieBanner()">×</button>
+    </div>
+
     <section class="about-section" id="about">
-        <div class="about-logo">
-            <svg width="200" height="60" viewBox="0 0 200 60">
-                <text x="100" y="40" text-anchor="middle" style="font-size: 20px; font-weight: 300; fill: #333;">THE {WEB} ELITE</text>
-            </svg>
-        </div>
+        <div class="about-logo">THE {WEB} ELITE</div>
         <div class="section-label">WEBSITE DESIGN, DEVELOPMENT & SHOPIFY ECOMMERCE</div>
         <p class="about-text">
             Learn more about us, our approach to website design & development, graphic design, 
@@ -677,17 +763,17 @@
             <div class="service-box">
                 <h3 class="service-title">Websites</h3>
                 <div class="service-subtitle">Clean & Responsive</div>
-                <a href="#services" class="service-link">Our Services</a>
+                <a href="https://www.webelite.co.za/services" class="service-link">Our Services</a>
             </div>
             <div class="service-box">
                 <h3 class="service-title">Shopify Experts</h3>
                 <div class="service-subtitle">Setups & Customizations</div>
-                <a href="#services" class="service-link">Our Services</a>
+                <a href="https://www.webelite.co.za/services" class="service-link">Our Services</a>
             </div>
             <div class="service-box">
                 <h3 class="service-title">Graphic Design</h3>
                 <div class="service-subtitle">Minimal & Creative</div>
-                <a href="#services" class="service-link">Our Services</a>
+                <a href="https://www.webelite.co.za/services" class="service-link">Our Services</a>
             </div>
         </div>
     </section>
@@ -695,44 +781,32 @@
     <section class="portfolio-section" id="portfolio">
         <h2 class="section-title">Things we've made</h2>
         <div class="view-more">
-            <a href="#portfolio">View More</a>
+            <a href="https://www.webelite.co.za/our-portfolio">View More</a>
         </div>
         
         <div class="portfolio-grid">
             <a href="http://www.tsonga.com/" class="portfolio-item">
-                <div class="portfolio-image">
-                    <div style="font-size: 32px; font-weight: 300; color: #333;">TSONGA</div>
-                </div>
+                <div class="portfolio-image">TSONGA</div>
                 <div class="portfolio-name">Tsonga SA | Tsonga AU</div>
             </a>
             <a href="https://thecuriousspirit.net/" class="portfolio-item">
-                <div class="portfolio-image">
-                    <div style="font-size: 32px; font-weight: 300; color: #333;">BE BRIGHT</div>
-                </div>
+                <div class="portfolio-image">BE BRIGHT</div>
                 <div class="portfolio-name">Be Bright</div>
             </a>
             <a href="https://www.rogueicecoolers.com/" class="portfolio-item">
-                <div class="portfolio-image">
-                    <div style="font-size: 32px; font-weight: 300; color: #333;">ROGUE</div>
-                </div>
+                <div class="portfolio-image">ROGUE</div>
                 <div class="portfolio-name">Rogue Ice Coolers</div>
             </a>
             <a href="https://nourishd.co.za/" class="portfolio-item">
-                <div class="portfolio-image">
-                    <div style="font-size: 32px; font-weight: 300; color: #333;">NOURISH'D</div>
-                </div>
+                <div class="portfolio-image">NOURISH'D</div>
                 <div class="portfolio-name">Nourish'd</div>
             </a>
             <a href="https://www.grasspeopletree.com/" class="portfolio-item">
-                <div class="portfolio-image">
-                    <div style="font-size: 32px; font-weight: 300; color: #333;">GPT</div>
-                </div>
+                <div class="portfolio-image">GPT</div>
                 <div class="portfolio-name">Grass People Tree</div>
             </a>
             <a href="https://hushpuppies.sv/" class="portfolio-item">
-                <div class="portfolio-image">
-                    <div style="font-size: 32px; font-weight: 300; color: #333;">HUSH PUPPIES</div>
-                </div>
+                <div class="portfolio-image">HUSH PUPPIES</div>
                 <div class="portfolio-name">Hush Puppies | Central America</div>
             </a>
         </div>
@@ -778,90 +852,144 @@
             <div class="testimonial-author">Amanda du Pont, T R I B E</div>
         </div>
         
-        <div class="view-more" style="margin-top: 40px;">
+        <div class="view-more" style="margin-top: 50px;">
             <a href="https://www.shopify.com/partners/directory/partner/puresolutions">View More</a>
         </div>
     </section>
 
     <section class="clients-section">
         <div class="clients-grid">
-            <a href="https://tsonga.com/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">Tsonga</div>
-            </a>
-            <a href="https://www.bebright.co.za/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">Be Bright</div>
-            </a>
-            <a href="https://hushpuppies.sv/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">Hush Puppies</div>
-            </a>
-            <a href="https://caterpillarsv.com/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">CAT</div>
-            </a>
-            <a href="https://www.labels4school.co.za/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">Labels4School</div>
-            </a>
-            <a href="http://tonydefreitas.com/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">Tony de Freitas</div>
-            </a>
-            <a href="https://imvelocandleco.im/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">Imvelo</div>
-            </a>
-            <a href="https://monn-shop.co.za/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">MONN</div>
-            </a>
-            <a href="https://www.rogueicecoolers.com/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">Rogue</div>
-            </a>
-            <a href="https://www.ardmore-design.com/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">Ardmore</div>
-            </a>
-            <a href="https://thecuriousspirit.net/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">The Curious Spirit</div>
-            </a>
-            <a href="https://www.justmatcha.co.za/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">Just Matcha</div>
-            </a>
-            <a href="http://pyramidoffice.co.za/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">Pyramid Office</div>
-            </a>
-            <a href="https://www.haircity.co.za/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">HairCity</div>
-            </a>
-            <a href="https://www.npl.za.com/" class="client-box">
-                <div style="font-size: 16px; font-weight: 400; color: #999;">NPL</div>
-            </a>
+            <a href="https://tsonga.com/" class="client-box">Tsonga</a>
+            <a href="https://www.bebright.co.za/" class="client-box">Be Bright</a>
+            <a href="https://hushpuppies.sv/" class="client-box">Hush Puppies</a>
+            <a href="https://caterpillarsv.com/" class="client-box">CAT</a>
+            <a href="https://www.labels4school.co.za/" class="client-box">Labels4School</a>
+            <a href="http://tonydefreitas.com/" class="client-box">Tony de Freitas</a>
+            <a href="https://imvelocandleco.im/" class="client-box">Imvelo</a>
+            <a href="https://monn-shop.co.za/" class="client-box">MONN</a>
+            <a href="https://www.rogueicecoolers.com/" class="client-box">Rogue</a>
+            <a href="https://www.ardmore-design.com/" class="client-box">Ardmore</a>
+            <a href="https://thecuriousspirit.net/" class="client-box">The Curious Spirit</a>
+            <a href="https://www.justmatcha.co.za/" class="client-box">Just Matcha</a>
+            <a href="http://pyramidoffice.co.za/" class="client-box">Pyramid Office</a>
+            <a href="https://www.haircity.co.za/" class="client-box">HairCity</a>
+            <a href="https://www.npl.za.com/" class="client-box">NPL</a>
         </div>
     </section>
 
     <section class="contact-section" id="contact">
-        <h2 class="contact-title">Get in touch with us</h2>
-        <div class="contact-phone">
-            <a href="tel:+27870125361">Call Us: 087 012 5361</a>
-        </div>
+        <h2 class="contact-title">Let's Talk</h2>
+        <p class="contact-subtitle">We understand that every business is unique. Contact us today to discuss your specific requirements and goals.</p>
         
         <div class="contact-grid">
             <div class="contact-box">
-                <h3>Book a Meeting</h3>
-                <p>Use the button below to schedule a meeting with us at our next available time slot.</p>
-                <a href="https://calendar.app.google/YDvm1eZ5CdohaSS39" class="contact-btn">Book a Meeting</a>
+                <div class="contact-icon">💬</div>
+                <h3>Live Chat Support</h3>
+                <p class="response-time">Response Time: Immediately</p>
+                <p>Get immediate assistance with our live chat support. Chat with us now for real-time help!</p>
+                <a href="#" class="contact-btn" onclick="openLiveChat(); return false;">Start Live Chat</a>
             </div>
             <div class="contact-box">
-                <h3>Contact Us</h3>
-                <p>The best way to reach us is via our support desk. This way, any available team member can respond to you promptly.</p>
-                <a href="mailto:support@webelite.co.za" class="contact-btn">Submit Ticket</a>
+                <div class="contact-icon">📱</div>
+                <h3>WhatsApp</h3>
+                <p class="response-time">Response Time: 10-30 minutes</p>
+                <p>Quick questions? Message us on WhatsApp for fast responses during business hours.</p>
+                <a href="https://wa.link/fxnepu" target="_blank" class="contact-btn">Chat on WhatsApp</a>
+            </div>
+            <div class="contact-box">
+                <div class="contact-icon">📲</div>
+                <h3>Telegram</h3>
+                <p class="response-time">Response Time: 10-30 minutes</p>
+                <p>Prefer Telegram? Connect with us for quick responses and updates.</p>
+                <a href="https://t.me/thewebelite_agency" target="_blank" class="contact-btn">Chat on Telegram</a>
+            </div>
+            <div class="contact-box">
+                <div class="contact-icon">📧</div>
+                <h3>Email Us</h3>
+                <p class="response-time">Response Time: 24-48 hours</p>
+                <p>For detailed inquiries and project proposals, send us an email.</p>
+                <a href="mailto:thewebeliteagency.dev@gmail.com" class="contact-btn">Send Email</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-logo">
-            <svg width="150" height="50" viewBox="0 0 150 50">
-                <text x="75" y="32" text-anchor="middle" style="font-size: 16px; font-weight: 300; fill: white;">THE {WEB} ELITE</text>
-            </svg>
-        </div>
+        <div class="footer-logo">THE {WEB} ELITE</div>
+        <p class="footer-text">
+            We limit ourselves to a small number of active projects at a time to ensure that we can 
+            give each one focused, individual attention during their respective durations. We work on 
+            a first come, first serve basis and can guarantee a starting date for a project only once 
+            a deposit has been received. Deposits are non-refundable. We reserve the right to mark a 
+            project as inactive if there is a delay of actionable feedback from the client for a period 
+            of at least 2 weeks. Inactive projects can be reactivated if the client comes back with 
+            actionable feedback within 3 months of the project going inactive. Failing that, the project 
+            will require a new deposit in order to be reactivated.
+        </p>
         <div class="copyright">
             Copyright © 2026. All rights reserved. The Web Elite.
         </div>
-        <p class="footer-text">
-            We limit ourselves to a small number of active projects at a time to ensure that we can give each one focused, 
-            individual attention during their respective durations. We work on a first come, first serve basis and
+    </footer>
+
+    <script>
+        // Slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            goToSlide((currentSlide + 1) % slides.length);
+        }
+        
+        // Auto-advance slider every 6 seconds
+        setInterval(nextSlide, 6000);
+        
+        // Cookie banner close
+        function closeCookieBanner() {
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+        
+        // Open live chat
+        function openLiveChat() {
+            if (window.Tawk_API && window.Tawk_API.toggle) {
+                window.Tawk_API.toggle();
+            }
+        }
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/69776c31b886b819814ab5b9/';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>
