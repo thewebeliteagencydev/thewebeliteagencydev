@@ -16,6 +16,13 @@
             color: #666;
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
+        html {
+            overflow-x: hidden;
+            width: 100%;
         }
         
         a {
@@ -36,7 +43,7 @@
         }
         
         nav {
-            max-width: 1400px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 15px 50px;
             display: flex;
@@ -287,6 +294,8 @@
             gap: 70px;
             max-width: 1150px;
             margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
         }
         
         .service-box {
@@ -387,6 +396,8 @@
             gap: 35px;
             max-width: 1250px;
             margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
         }
         
         .portfolio-item {
@@ -510,6 +521,8 @@
             gap: 35px;
             max-width: 1250px;
             margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
         }
         
         .client-box {
@@ -567,6 +580,8 @@
             gap: 30px;
             max-width: 1300px;
             margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
         }
         
         .contact-box {
@@ -965,8 +980,15 @@
         
         // Open live chat
         function openLiveChat() {
-            if (window.Tawk_API && window.Tawk_API.toggle) {
-                window.Tawk_API.toggle();
+            if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
+                Tawk_API.maximize();
+            } else {
+                // Wait for Tawk to load
+                setTimeout(function() {
+                    if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
+                        Tawk_API.maximize();
+                    }
+                }, 1000);
             }
         }
         
@@ -991,7 +1013,7 @@
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
     s1.async=true;
-    s1.src='https://embed.tawk.to/69776c31b886b819814ab5b9/1ijvs7ged';
+    s1.src='https://embed.tawk.to/69776c31b886b819814ab5b9/';
     s1.charset='UTF-8';
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
