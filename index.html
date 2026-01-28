@@ -1088,7 +1088,7 @@
                 <h3>Live Chat Support</h3>
                 <p class="response-time">Response Time: Immediately</p>
                 <p>Get immediate assistance with our live chat support. Chat with us now for real-time help!</p>
-                <a href="#" class="contact-btn" onclick="return openTawkChat();">Start Live Chat</a>
+                <a href="#" class="contact-btn" onclick="return openTawkChat(event);">Start Live Chat</a>
             </div>
             <div class="contact-box">
                 <div class="contact-icon">📱</div>
@@ -1131,27 +1131,64 @@
         </div>
     </footer>
 
+
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Improved Tawk.to chat handler
-        function openTawkChat() {
+        // ULTRA-FAST Tawk.to chat handler with visual feedback
+        function openTawkChat(event) {
+            // Show loading feedback
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Opening Chat...';
+            btn.style.opacity = '0.7';
+            
+            // Try to maximize immediately if widget is loaded
             if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
                 Tawk_API.maximize();
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.opacity = '1';
+                }, 500);
                 return false;
             }
+            
+            // If widget not loaded, check rapidly for 2 seconds
             let attempts = 0;
             const checkInterval = setInterval(() => {
                 attempts++;
                 if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
                     Tawk_API.maximize();
                     clearInterval(checkInterval);
-                } else if (attempts >= 5) {
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.opacity = '1';
+                    }, 500);
+                } else if (attempts >= 20) {
                     clearInterval(checkInterval);
-                    window.open('https://tawk.to/chat/69776c31b886b819814ab5b9/1jft7t96m', '_blank');
+                    // Redirect to chat page (faster than opening new window)
+                    window.location.href = 'https://tawk.to/chat/69776c31b886b819814ab5b9/1jft7t96m';
                 }
-            }, 500);
+            }, 100);
+            
             return false;
         }
-
+        
+        // Force Tawk widget to load as soon as page is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTawk);
+        } else {
+            initTawk();
+        }
+        
+        function initTawk() {
+            setTimeout(() => {
+                if (typeof Tawk_API !== 'undefined') {
+                    Tawk_API.onLoad = function(){
+                        console.log('✓ Chat widget ready!');
+                    };
+                }
+            }, 1000);
+        }
+        
         // Slider functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
