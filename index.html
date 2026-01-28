@@ -876,7 +876,7 @@
                 <h3>Live Chat Support</h3>
                 <p class="response-time">Response Time: Immediately</p>
                 <p>Get immediate assistance with our live chat support. Chat with us now for real-time help!</p>
-                <a href="#" class="contact-btn" onclick="event.preventDefault(); if(window.Tawk_API && window.Tawk_API.maximize) { window.Tawk_API.maximize(); } else { alert('Live chat is loading, please wait a moment and try again.'); }">Start Live Chat</a>
+                <a href="#" class="contact-btn" onclick="event.preventDefault(); try { if(typeof Tawk_API !== 'undefined' && Tawk_API.maximize) { Tawk_API.maximize(); } else { setTimeout(function(){ if(typeof Tawk_API !== 'undefined' && Tawk_API.maximize) { Tawk_API.maximize(); } }, 2000); } } catch(e) { window.open('https://tawk.to/chat/69776c31b886b819814ab5b9/1ijvs7ged', '_blank'); }">Start Live Chat</a>
             </div>
             <div class="contact-box">
                 <div class="contact-icon">📱</div>
@@ -961,11 +961,17 @@
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
     s1.async=true;
-    s1.src='https://embed.tawk.to/69776c31b886b819814ab5b9/';
+    s1.src='https://embed.tawk.to/69776c31b886b819814ab5b9/1ijvs7ged';
     s1.charset='UTF-8';
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
     })();
+    
+    // Ensure Tawk widget loads properly
+    Tawk_API = Tawk_API || {};
+    Tawk_API.onLoad = function(){
+        console.log('Tawk.to widget loaded successfully');
+    };
     </script>
     <!--End of Tawk.to Script-->
 </body>
