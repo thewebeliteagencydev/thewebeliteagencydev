@@ -550,9 +550,9 @@
         
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            max-width: 1300px;
+            max-width: 1100px;
             margin: 0 auto;
             width: 100%;
             padding: 0 20px;
@@ -1084,13 +1084,6 @@
         
         <div class="contact-grid">
             <div class="contact-box">
-                <div class="contact-icon">💬</div>
-                <h3>Live Chat Support</h3>
-                <p class="response-time">Response Time: Immediately</p>
-                <p>Get immediate assistance with our live chat support. Chat with us now for real-time help!</p>
-                <a href="#" class="contact-btn" onclick="return openTawkChat(event);">Start Live Chat</a>
-            </div>
-            <div class="contact-box">
                 <div class="contact-icon">📱</div>
                 <h3>WhatsApp</h3>
                 <p class="response-time">Response Time: 10-30 minutes</p>
@@ -1133,53 +1126,6 @@
 
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // ULTRA-FAST Tawk.to chat handler with visual feedback
-        function openTawkChat(event) {
-            // Show loading feedback
-            const btn = event.target;
-            const originalText = btn.textContent;
-            btn.textContent = 'Opening Chat...';
-            btn.style.opacity = '0.7';
-            
-            // Try to maximize immediately if widget is loaded
-            if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-                Tawk_API.maximize();
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.opacity = '1';
-                }, 500);
-                return false;
-            }
-            
-            // If widget not loaded, check rapidly for 2 seconds
-            let attempts = 0;
-            const checkInterval = setInterval(() => {
-                attempts++;
-                if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-                    Tawk_API.maximize();
-                    clearInterval(checkInterval);
-                    setTimeout(() => {
-                        btn.textContent = originalText;
-                        btn.style.opacity = '1';
-                    }, 500);
-                } else if (attempts >= 20) {
-                    clearInterval(checkInterval);
-                    // Redirect to chat page (faster than opening new window)
-                    window.location.href = 'https://tawk.to/chat/69776c31b886b819814ab5b9/1jft7t96m';
-                }
-            }, 100);
-            
-            return false;
-        }
-        
-        // Force Tawk widget to load as soon as page is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initTawk);
-        } else {
-            initTawk();
-        }
-        
-        function initTawk() {
             setTimeout(() => {
                 if (typeof Tawk_API !== 'undefined') {
                     Tawk_API.onLoad = function(){
@@ -1223,19 +1169,3 @@
             });
         });
     </script>
-    
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/69776c31b886b819814ab5b9/1jft7t96m';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    
-    // Ensure Tawk widget loads properly
-    Tawk_API = Tawk_API || {};
-    Ta
