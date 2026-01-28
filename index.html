@@ -216,35 +216,7 @@
         
         /* Cookie Banner */
         .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #1abc9c;
-            color: white;
-            padding: 25px 40px;
-            text-align: center;
-            z-index: 999;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        .cookie-banner button {
-            position: absolute;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-        
-        .cookie-banner button:hover {
-            opacity: 1;
+            display: none;
         }
         
         /* About Section */
@@ -748,14 +720,14 @@
     </header>
 
     <div class="hero-slider" id="home">
-        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920&h=1080&fit=crop&q=80')">
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&h=1080&fit=crop&q=80')">
             <div class="slide-content">
                 <div class="slide-subtitle">We have helped merchants from all over the world get started on or move over to Shopify</div>
                 <h1 class="slide-title">Shopify Experts</h1>
                 <a href="https://www.webelite.co.za/shopify" class="slide-btn">Learn More</a>
             </div>
         </div>
-        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1920&h=1080&fit=crop&q=80')">
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&h=1080&fit=crop&q=80')">
             <div class="slide-content">
                 <div class="slide-subtitle">Modern, creative websites to reflect your business and brand</div>
                 <h1 class="slide-title">Responsive Website<br>Design & Development</h1>
@@ -766,11 +738,6 @@
             <div class="slider-dot active" onclick="goToSlide(0)"></div>
             <div class="slider-dot" onclick="goToSlide(1)"></div>
         </div>
-    </div>
-
-    <div class="cookie-banner" id="cookieBanner">
-        Hello! We just wanted to let you know that we use cookies on this website. These cookies are there to enhance your experience on our website and for us to continue being elite! By using our website you agree to our use of cookies. I mean who doesn't like cookies!
-        <button onclick="closeCookieBanner()">×</button>
     </div>
 
     <section class="about-section" id="about">
@@ -909,7 +876,7 @@
                 <h3>Live Chat Support</h3>
                 <p class="response-time">Response Time: Immediately</p>
                 <p>Get immediate assistance with our live chat support. Chat with us now for real-time help!</p>
-                <a href="#" class="contact-btn" onclick="openLiveChat(); return false;">Start Live Chat</a>
+                <a href="#" class="contact-btn" onclick="event.preventDefault(); if(window.Tawk_API && window.Tawk_API.maximize) { window.Tawk_API.maximize(); } else { alert('Live chat is loading, please wait a moment and try again.'); }">Start Live Chat</a>
             </div>
             <div class="contact-box">
                 <div class="contact-icon">📱</div>
@@ -972,25 +939,6 @@
         
         // Auto-advance slider every 6 seconds
         setInterval(nextSlide, 6000);
-        
-        // Cookie banner close
-        function closeCookieBanner() {
-            document.getElementById('cookieBanner').style.display = 'none';
-        }
-        
-        // Open live chat
-        function openLiveChat() {
-            if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-                Tawk_API.maximize();
-            } else {
-                // Wait for Tawk to load
-                setTimeout(function() {
-                    if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-                        Tawk_API.maximize();
-                    }
-                }, 1000);
-            }
-        }
         
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
