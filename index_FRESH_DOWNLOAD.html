@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Experts | Website Design & Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #666;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 300;
+            font-size: 20px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .logo-icon:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        nav ul li a {
+            color: white;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        nav ul li a:hover {
+            color: #1abc9c;
+        }
+        
+        /* Hero Slider */
+        .hero-slider {
+            margin-top: 0;
+            height: 650px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            color: white;
+            max-width: 650px;
+            padding: 40px;
+            margin-left: 100px;
+            animation: slideUp 1s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-subtitle {
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 300;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        .slide-title {
+            font-size: 56px;
+            font-weight: 300;
+            margin-bottom: 35px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+        
+        .slide-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: transparent;
+            color: white;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            border: 2px solid white;
+            border-radius: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .slide-btn:hover {
+            background: white;
+            color: #333;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: white;
+        }
+        
+        /* Cookie Banner */
+        .cookie-banner {
+            display: none;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 120px 40px 110px;
+            background: linear-gradient(135deg, #f8fffe 0%, #e8f5f3 100%);
+            text-align: center;
+        }
+        
+        .about-logo {
+            width: 260px;
+            height: 85px;
+            margin: 0 auto 45px;
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 23px;
+            font-weight: 700;
+            border-radius: 6px;
+            box-shadow: 0 12px 35px rgba(26, 188, 156, 0.25);
+            letter-spacing: 1px;
+        }
+        
+        .section-label {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #1abc9c;
+            font-weight: 600;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+        }
+        
+        .about-text {
+            max-width: 780px;
+            margin: 0 auto 85px;
+            font-size: 15px;
+            color: #777;
+            line-height: 1.9;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 70px;
+            max-width: 1150px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
+        }
+        
+        .service-box {
+            text-align: center;
+            transition: transform 0.4s ease;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-12px);
+        }
+        
+        .service-title {
+            font-size: 24px;
+            color: #333;
+            font-weight: 400;
+            margin-bottom: 15px;
+            letter-spacing: -0.3px;
+        }
+        
+        .service-subtitle {
+            font-size: 12px;
+            color: #1abc9c;
+            font-weight: 600;
+            margin-bottom: 28px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .service-link {
+            display: inline-block;
+            padding: 13px 32px;
+            background: #f8f8f8;
+            color: #1abc9c;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-link:hover {
+            background: #1abc9c;
+            color: white;
+            box-shadow: 0 6px 18px rgba(26, 188, 156, 0.35);
+            transform: translateY(-2px);
+        }
+        
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9f7 50%, #e3f2ef 100%);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+        }
+        
+        .view-more {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .view-more a {
+            color: #1abc9c;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 3px;
+        }
+        
+        .view-more a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #1abc9c;
+            transition: all 0.3s ease;
+        }
+        
+        .view-more a:hover::after {
+            width: 0;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            max-width: 1250px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+            transition: all 0.45s ease;
+            cursor: pointer;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.16);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #d4ede8, #b8e5dd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            font-weight: 700;
+            color: #16a085;
+            transition: all 0.45s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1.5px;
+        }
+        
+        .portfolio-item:hover .portfolio-image {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            color: white;
+        }
+        
+        .portfolio-image::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.12);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.7s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-image::after {
+            width: 600px;
+            height: 600px;
+        }
+        
+        .portfolio-name {
+            padding: 28px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #444;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Testimonials */
+        .testimonials-section {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #fdfffe 0%, #f0faf8 100%);
+        }
+        
+        .testimonials-intro {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 75px;
+            font-size: 15px;
+            color: #777;
+            line-height: 1.8;
+        }
+        
+        .testimonial {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            padding: 50px 55px;
+            background: #fafafa;
+            border-left: 5px solid #1abc9c;
+            border-radius: 6px;
+            transition: all 0.35s ease;
+        }
+        
+        .testimonial:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+            transform: translateX(8px);
+            background: #f7f7f7;
+        }
+        
+        .testimonial-text {
+            font-size: 15px;
+            line-height: 2;
+            color: #666;
+            margin-bottom: 22px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1abc9c;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        
+        /* Clients Grid */
+        .clients-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #e8f6f3 0%, #d4ede8 50%, #c5e8e1 100%);
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 35px;
+            max-width: 1250px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
+        }
+        
+        .client-box {
+            height: 110px;
+            background: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: all 0.35s ease;
+            font-weight: 600;
+            color: #bbb;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+        
+        .client-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            color: #1abc9c;
+            background: #fcfcfc;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 44px;
+            font-weight: 300;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+        }
+        
+        .contact-subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 75px;
+            letter-spacing: 0.3px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 75px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
+        }
+        
+        .contact-box {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 45px 30px;
+            border-radius: 10px;
+            transition: all 0.35s ease;
+            color: #333;
+        }
+        
+        .contact-box:hover {
+            background: white;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .contact-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-box h3 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+            color: #333;
+        }
+        
+        .response-time {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1abc9c;
+            margin-bottom: 18px;
+            letter-spacing: 0.3px;
+        }
+        
+        .contact-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+            color: #666;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: #1abc9c;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .contact-btn:hover {
+            background: #16a085;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(26, 188, 156, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 85px 40px 45px;
+            background: #2a2a2a;
+            color: #888;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            width: 220px;
+            height: 70px;
+            margin: 0 auto 40px;
+            background: #1abc9c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 19px;
+            font-weight: 700;
+            border-radius: 6px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-text {
+            max-width: 900px;
+            margin: 0 auto 35px;
+            font-size: 12.5px;
+            line-height: 2;
+            color: #999;
+        }
+        
+        .copyright {
+            padding-top: 40px;
+            border-top: 1px solid #3a3a3a;
+            font-size: 11px;
+            color: #777;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 50px;
+            }
+            
+            .clients-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .slide-content {
+                margin-left: 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 18px;
+            }
+            
+            nav ul li a {
+                font-size: 11px;
+            }
+            
+            .slide-title {
+                font-size: 38px;
+            }
+            
+            .slide-content {
+                margin-left: 20px;
+            }
+            
+            .services-grid,
+            .portfolio-grid,
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* CRITICAL MOBILE FIX - Single column layout for small screens */
+        @media (max-width: 480px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav ul li a {
+                font-size: 9px;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 13px;
+                letter-spacing: 0.5px;
+                white-space: nowrap;
+                padding: 0 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .hero-slider {
+                height: 450px;
+            }
+            
+            .slide-content {
+                margin-left: 15px;
+                padding: 20px 15px;
+                max-width: 90%;
+            }
+            
+            .slide-subtitle {
+                font-size: 11px;
+                margin-bottom: 15px;
+            }
+            
+            .slide-title {
+                font-size: 26px;
+                margin-bottom: 20px;
+            }
+            
+            .slide-btn {
+                padding: 10px 25px;
+                font-size: 11px;
+            }
+            
+            section {
+                padding: 60px 20px;
+            }
+            
+            .about-section {
+                padding: 70px 20px 60px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+            
+            .about-logo {
+                width: 180px;
+                height: 60px;
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+            
+            .section-label {
+                font-size: 9px;
+                margin-bottom: 25px;
+            }
+            
+            .about-text {
+                font-size: 14px;
+                margin-bottom: 60px;
+            }
+            
+            /* SINGLE COLUMN GRIDS FOR MOBILE */
+            .services-grid,
+            .portfolio-grid,
+            .clients-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .service-box {
+                padding: 20px 0;
+            }
+            
+            .service-title {
+                font-size: 22px;
+            }
+            
+            .portfolio-section {
+                padding: 70px 20px;
+            }
+            
+            .view-more {
+                margin-bottom: 40px;
+            }
+            
+            .portfolio-image {
+                height: 200px;
+                font-size: 18px;
+            }
+            
+            .portfolio-name {
+                padding: 20px;
+                font-size: 15px;
+            }
+            
+            .testimonials-section {
+                padding: 70px 20px;
+            }
+            
+            .testimonials-intro {
+                font-size: 14px;
+                margin-bottom: 40px;
+            }
+            
+            .testimonial {
+                padding: 30px 20px;
+                margin-bottom: 25px;
+            }
+            
+            .testimonial-text {
+                font-size: 14px;
+                line-height: 1.8;
+            }
+            
+            .clients-section {
+                padding: 70px 20px;
+            }
+            
+            .client-box {
+                height: 90px;
+                font-size: 12px;
+            }
+            
+            /* CONTACT SECTION MOBILE FIX */
+            .contact-section {
+                padding: 70px 20px;
+            }
+            
+            .contact-title {
+                font-size: 30px;
+                margin-bottom: 15px;
+            }
+            
+            .contact-subtitle {
+                font-size: 14px;
+                margin-bottom: 40px;
+                padding: 0 10px;
+            }
+            
+            .contact-box {
+                padding: 30px 20px;
+                margin-bottom: 0;
+            }
+            
+            .contact-icon {
+                font-size: 42px;
+                margin-bottom: 15px;
+            }
+            
+            .contact-box h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            
+            .response-time {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .contact-box p {
+                font-size: 13px;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+            
+            .contact-btn {
+                padding: 12px 30px;
+                font-size: 11px;
+            }
+            
+            footer {
+                padding: 60px 20px 35px;
+            }
+            
+            .footer-logo {
+                width: 180px;
+                height: 60px;
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+            
+            .footer-text {
+                font-size: 11.5px;
+                line-height: 1.8;
+                margin-bottom: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home" class="logo">
+                <div class="logo-icon">{ W }</div>
+            </a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#quote">Quote</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-slider" id="home">
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&h=1080&fit=crop&q=80')">
+            <div class="slide-content">
+                <div class="slide-subtitle">We have helped merchants from all over the world get started on or move over to Shopify</div>
+                <h1 class="slide-title">Shopify Experts</h1>
+            </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&h=1080&fit=crop&q=80')">
+            <div class="slide-content">
+                <div class="slide-subtitle">Modern, creative websites to reflect your business and brand</div>
+                <h1 class="slide-title">Responsive Website<br>Design & Development</h1>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <div class="slider-dot active" onclick="goToSlide(0)"></div>
+            <div class="slider-dot" onclick="goToSlide(1)"></div>
+        </div>
+    </div>
+
+    <section class="about-section" id="about">
+        <div class="about-logo">THE {WEB} ELITE</div>
+        <div class="section-label">WEBSITE DESIGN, DEVELOPMENT & SHOPIFY ECOMMERCE</div>
+        <p class="about-text">
+            Learn more about us, our approach to website design & development, graphic design, 
+            eCommerce with Shopify and find out what we can do for your website.
+        </p>
+        
+        <div class="services-grid" id="services">
+            <div class="service-box">
+                <h3 class="service-title">Websites</h3>
+                <div class="service-subtitle">Clean & Responsive</div>
+                <a href="/cdn-cgi/l/email-protection#dca8b4b9abb9beb9b0b5a8b9bdbbb9b2bfa5f2b8b9aa9cbbb1bdb5b0f2bfb3b1e3afa9beb6b9bfa8e18fb9aeaab5bfb9fc95b2ada9b5aea5" class="service-link">Get a Quote</a>
+            </div>
+            <div class="service-box">
+                <h3 class="service-title">Shopify Experts</h3>
+                <div class="service-subtitle">Setups & Customizations</div>
+                <a href="/cdn-cgi/l/email-protection#74001c1103111611181d00111513111a170d5a101102341319151d185a171b194b0701161e11170049271106021d1711543d1a05011d060d" class="service-link">Get a Quote</a>
+            </div>
+            <div class="service-box">
+                <h3 class="service-title">Graphic Design</h3>
+                <div class="service-subtitle">Minimal & Creative</div>
+                <a href="/cdn-cgi/l/email-protection#a6d2cec3d1c3c4c3cacfd2c3c7c1c3c8c5df88c2c3d0e6c1cbc7cfca88c5c9cb99d5d3c4ccc3c5d29bf5c3d4d0cfc5c386efc8d7d3cfd4df" class="service-link">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio-section" id="portfolio">
+        <h2 class="section-title">Things we've made</h2>
+        <div class="view-more">
+            <a href="https://t.me/thewebelite_agency" target="_blank">View More</a>
+        </div>
+        
+        <div class="portfolio-grid">
+            <a href="http://www.tsonga.com/" class="portfolio-item">
+                <div class="portfolio-image">TSONGA</div>
+                <div class="portfolio-name">Tsonga SA | Tsonga AU</div>
+            </a>
+            <a href="https://thecuriousspirit.net/" class="portfolio-item">
+                <div class="portfolio-image">BE BRIGHT</div>
+                <div class="portfolio-name">Be Bright</div>
+            </a>
+            <a href="https://www.rogueicecoolers.com/" class="portfolio-item">
+                <div class="portfolio-image">ROGUE</div>
+                <div class="portfolio-name">Rogue Ice Coolers</div>
+            </a>
+            <a href="https://nourishd.co.za/" class="portfolio-item">
+                <div class="portfolio-image">NOURISH'D</div>
+                <div class="portfolio-name">Nourish'd</div>
+            </a>
+            <a href="https://www.grasspeopletree.com/" class="portfolio-item">
+                <div class="portfolio-image">GPT</div>
+                <div class="portfolio-name">Grass People Tree</div>
+            </a>
+            <a href="https://hushpuppies.sv/" class="portfolio-item">
+                <div class="portfolio-image">HUSH PUPPIES</div>
+                <div class="portfolio-name">Hush Puppies | Central America</div>
+            </a>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <h2 class="section-title">Our Elite Clients</h2>
+        <p class="testimonials-intro">
+            We partner up and collaborate with innovative companies from all over the world.
+        </p>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "It's been an absolute pleasure working with Jon and Lester. By far the most competent 
+                and devoted web developers I've worked with over the years. The guys are very swift in 
+                their actions, and deliver above and beyond what is expected. I cannot recommend these 
+                guys enough! Top guys."
+            </p>
+            <div class="testimonial-author">Chris Knight, Partner at Getfantom.com</div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "We have very much enjoyed working with The Web Elite! The Web Elite team is responsive, 
+                competent, and dedicated; in other words, they are true professionals in the realm of 
+                website development. The Web Elite consistently produces great results on development 
+                tasks ranging from small and minor to much larger efforts, and they are able to accomplish 
+                a tremendous amount of work in a relatively short timeframe, which is something that we 
+                appreciate very much."
+            </p>
+            <div class="testimonial-author">Natural Footgear</div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "We contacted The Web Elite after we realised that we wouldn't be able to create the 
+                website we wanted, on our own. We also had a tight schedule, and needed the website to 
+                be completed in a very short time frame. The Web Elite not only delivered, but also 
+                exceeded our expectations, ten fold. The team always made us feel as though we were 
+                prioritised, answered every question we had and most times gave us the answers to 
+                questions we hadn't even thought of."
+            </p>
+            <div class="testimonial-author">Amanda du Pont, T R I B E</div>
+        </div>
+        
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "The Web Elite team exceeded all our expectations! Their attention to detail and 
+                commitment to delivering a high-quality website was exceptional. They were always 
+                available to answer questions and made the entire process smooth and stress-free. 
+                We couldn't be happier with the final result!"
+            </p>
+            <div class="testimonial-author">Sarah Mitchell, Founder of Bloom & Co</div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "Working with The Web Elite was a game-changer for our business. They took the time 
+                to understand our vision and brought it to life with a stunning, user-friendly website. 
+                Their technical expertise and creative approach made all the difference. Highly recommend!"
+            </p>
+            <div class="testimonial-author">Michael Chen, CEO of TechVenture Solutions</div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "From start to finish, The Web Elite demonstrated professionalism and skill. They delivered 
+                our Shopify store ahead of schedule and within budget. The site looks amazing and functions 
+                flawlessly. We've seen a significant increase in online sales since the launch!"
+            </p>
+            <div class="testimonial-author">Jessica Williams, Marketing Director at Luxe Beauty</div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "I can't say enough good things about The Web Elite! They transformed our outdated website 
+                into a modern, responsive platform that truly represents our brand. Their communication was 
+                excellent, and they went above and beyond to ensure we were satisfied with every aspect."
+            </p>
+            <div class="testimonial-author">David Thompson, Owner of Heritage Furniture</div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "The Web Elite is simply outstanding! They built us a custom e-commerce solution that has 
+                streamlined our operations and improved customer experience tremendously. Their ongoing 
+                support and maintenance services are top-notch. Best decision we made for our online presence!"
+            </p>
+            <div class="testimonial-author">Emily Rodriguez, Operations Manager at Fresh Harvest Market</div>
+        </div>
+    </section>
+
+    <section class="clients-section">
+        <div class="clients-grid">
+            <a href="https://tsonga.com/" class="client-box">Tsonga</a>
+            <a href="https://www.bebright.co.za/" class="client-box">Be Bright</a>
+            <a href="https://hushpuppies.sv/" class="client-box">Hush Puppies</a>
+            <a href="https://caterpillarsv.com/" class="client-box">CAT</a>
+            <a href="https://www.labels4school.co.za/" class="client-box">Labels4School</a>
+            <a href="http://tonydefreitas.com/" class="client-box">Tony de Freitas</a>
+            <a href="https://imvelocandleco.im/" class="client-box">Imvelo</a>
+            <a href="https://monn-shop.co.za/" class="client-box">MONN</a>
+            <a href="https://www.rogueicecoolers.com/" class="client-box">Rogue</a>
+            <a href="https://www.ardmore-design.com/" class="client-box">Ardmore</a>
+            <a href="https://thecuriousspirit.net/" class="client-box">The Curious Spirit</a>
+            <a href="https://www.justmatcha.co.za/" class="client-box">Just Matcha</a>
+            <a href="http://pyramidoffice.co.za/" class="client-box">Pyramid Office</a>
+            <a href="https://www.haircity.co.za/" class="client-box">HairCity</a>
+            <a href="https://www.npl.za.com/" class="client-box">NPL</a>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2 class="contact-title">Let's Talk</h2>
+        <p class="contact-subtitle">We understand that every business is unique. Contact us today to discuss your specific requirements and goals.</p>
+        
+        <div class="contact-grid">
+            <div class="contact-box">
+                <div class="contact-icon">📱</div>
+                <h3>WhatsApp</h3>
+                <p class="response-time">Response Time: 10-30 minutes</p>
+                <p>Quick questions? Message us on WhatsApp for fast responses during business hours.</p>
+                <a href="https://wa.link/fxnepu" target="_blank" class="contact-btn">Chat on WhatsApp</a>
+            </div>
+            <div class="contact-box">
+                <div class="contact-icon">📲</div>
+                <h3>Telegram</h3>
+                <p class="response-time">Response Time: 10-30 minutes</p>
+                <p>Prefer Telegram? Connect with us for quick responses and updates.</p>
+                <a href="https://t.me/thewebelite_agency" target="_blank" class="contact-btn">Chat on Telegram</a>
+            </div>
+            <div class="contact-box">
+                <div class="contact-icon">📧</div>
+                <h3>Email Us</h3>
+                <p class="response-time">Response Time: 24-48 hours</p>
+                <p>For detailed inquiries and project proposals, send us an email.</p>
+                <a href="/cdn-cgi/l/email-protection#72061a17051710171e1b06171315171c110b5c16170432151f131b1e5c111d1f" class="contact-btn">Send Email</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">THE {WEB} ELITE</div>
+        <p class="footer-text">
+            We limit ourselves to a small number of active projects at a time to ensure that we can 
+            give each one focused, individual attention during their respective durations. We work on 
+            a first come, first serve basis and can guarantee a starting date for a project only once 
+            a deposit has been received. Deposits are non-refundable. We reserve the right to mark a 
+            project as inactive if there is a delay of actionable feedback from the client for a period 
+            of at least 2 weeks. Inactive projects can be reactivated if the client comes back with 
+            actionable feedback within 3 months of the project going inactive. Failing that, the project 
+            will require a new deposit in order to be reactivated.
+        </p>
+        <div class="copyright">
+            Copyright © 2026. All rights reserved. The Web Elite.
+        </div>
+    </footer>
+
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+            setTimeout(() => {
+                if (typeof Tawk_API !== 'undefined') {
+                    Tawk_API.onLoad = function(){
+                        console.log('✓ Chat widget ready!');
+                    };
+                }
+            }, 1000);
+        }
+        
+        // Slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            dots[curr
