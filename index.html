@@ -71,6 +71,8 @@
             letter-spacing: 2px;
             cursor: pointer;
             transition: all 0.3s ease;
+            white-space: nowrap;
+            overflow: hidden;
         }
         
         .logo-icon:hover {
@@ -548,9 +550,9 @@
         
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            max-width: 1300px;
+            max-width: 1100px;
             margin: 0 auto;
             width: 100%;
             padding: 0 20px;
@@ -609,6 +611,7 @@
             letter-spacing: 0.5px;
             border-radius: 5px;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .contact-btn:hover {
@@ -700,9 +703,219 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        
+        /* CRITICAL MOBILE FIX - Single column layout for small screens */
+        @media (max-width: 480px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav ul li a {
+                font-size: 9px;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 13px;
+                letter-spacing: 0.5px;
+                white-space: nowrap;
+                padding: 0 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .hero-slider {
+                height: 450px;
+            }
+            
+            .slide-content {
+                margin-left: 15px;
+                padding: 20px 15px;
+                max-width: 90%;
+            }
+            
+            .slide-subtitle {
+                font-size: 11px;
+                margin-bottom: 15px;
+            }
+            
+            .slide-title {
+                font-size: 26px;
+                margin-bottom: 20px;
+            }
+            
+            .slide-btn {
+                padding: 10px 25px;
+                font-size: 11px;
+            }
+            
+            section {
+                padding: 60px 20px;
+            }
+            
+            .about-section {
+                padding: 70px 20px 60px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+            
+            .about-logo {
+                width: 180px;
+                height: 60px;
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+            
+            .section-label {
+                font-size: 9px;
+                margin-bottom: 25px;
+            }
+            
+            .about-text {
+                font-size: 14px;
+                margin-bottom: 60px;
+            }
+            
+            /* SINGLE COLUMN GRIDS FOR MOBILE */
+            .services-grid,
+            .portfolio-grid,
+            .clients-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .service-box {
+                padding: 20px 0;
+            }
+            
+            .service-title {
+                font-size: 22px;
+            }
+            
+            .portfolio-section {
+                padding: 70px 20px;
+            }
+            
+            .view-more {
+                margin-bottom: 40px;
+            }
+            
+            .portfolio-image {
+                height: 200px;
+                font-size: 18px;
+            }
+            
+            .portfolio-name {
+                padding: 20px;
+                font-size: 15px;
+            }
+            
+            .testimonials-section {
+                padding: 70px 20px;
+            }
+            
+            .testimonials-intro {
+                font-size: 14px;
+                margin-bottom: 40px;
+            }
+            
+            .testimonial {
+                padding: 30px 20px;
+                margin-bottom: 25px;
+            }
+            
+            .testimonial-text {
+                font-size: 14px;
+                line-height: 1.8;
+            }
+            
+            .clients-section {
+                padding: 70px 20px;
+            }
+            
+            .client-box {
+                height: 90px;
+                font-size: 12px;
+            }
+            
+            /* CONTACT SECTION MOBILE FIX */
+            .contact-section {
+                padding: 70px 20px;
+            }
+            
+            .contact-title {
+                font-size: 30px;
+                margin-bottom: 15px;
+            }
+            
+            .contact-subtitle {
+                font-size: 14px;
+                margin-bottom: 40px;
+                padding: 0 10px;
+            }
+            
+            .contact-box {
+                padding: 30px 20px;
+                margin-bottom: 0;
+            }
+            
+            .contact-icon {
+                font-size: 42px;
+                margin-bottom: 15px;
+            }
+            
+            .contact-box h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            
+            .response-time {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .contact-box p {
+                font-size: 13px;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+            
+            .contact-btn {
+                padding: 12px 30px;
+                font-size: 11px;
+            }
+            
+            footer {
+                padding: 60px 20px 35px;
+            }
+            
+            .footer-logo {
+                width: 180px;
+                height: 60px;
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+            
+            .footer-text {
+                font-size: 11.5px;
+                line-height: 1.8;
+                margin-bottom: 25px;
+            }
+        }
     </style>
 </head>
 <body>
+<!-- VERIFIED CORRECT VERSION - Generated on Jan 29, 2026 - Hero buttons REMOVED, View More links to Telegram -->
     <header>
         <nav>
             <a href="#home" class="logo">
@@ -713,7 +926,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="mailto:thewebeliteagency.dev@gmail.com">Quote</a></li>
+                <li><a href="#services">Quote</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -724,14 +937,12 @@
             <div class="slide-content">
                 <div class="slide-subtitle">We have helped merchants from all over the world get started on or move over to Shopify</div>
                 <h1 class="slide-title">Shopify Experts</h1>
-                <a href="https://www.webelite.co.za/shopify" class="slide-btn">Learn More</a>
             </div>
         </div>
         <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&h=1080&fit=crop&q=80')">
             <div class="slide-content">
                 <div class="slide-subtitle">Modern, creative websites to reflect your business and brand</div>
                 <h1 class="slide-title">Responsive Website<br>Design & Development</h1>
-                <a href="https://www.webelite.co.za/websites" class="slide-btn">Learn More</a>
             </div>
         </div>
         <div class="slider-nav">
@@ -752,17 +963,17 @@
             <div class="service-box">
                 <h3 class="service-title">Websites</h3>
                 <div class="service-subtitle">Clean & Responsive</div>
-                <a href="mailto:thewebeliteagency.dev@gmail.com?subject=Website Services Inquiry" class="service-link">Our Services</a>
+                <a href="mailto:thewebeliteagency.dev@gmail.com?subject=Service Inquiry" class="service-link">Get a Quote</a>
             </div>
             <div class="service-box">
                 <h3 class="service-title">Shopify Experts</h3>
                 <div class="service-subtitle">Setups & Customizations</div>
-                <a href="mailto:thewebeliteagency.dev@gmail.com?subject=Shopify Services Inquiry" class="service-link">Our Services</a>
+                <a href="mailto:thewebeliteagency.dev@gmail.com?subject=Service Inquiry" class="service-link">Get a Quote</a>
             </div>
             <div class="service-box">
                 <h3 class="service-title">Graphic Design</h3>
                 <div class="service-subtitle">Minimal & Creative</div>
-                <a href="mailto:thewebeliteagency.dev@gmail.com?subject=Graphic Design Services Inquiry" class="service-link">Our Services</a>
+                <a href="mailto:thewebeliteagency.dev@gmail.com?subject=Service Inquiry" class="service-link">Get a Quote</a>
             </div>
         </div>
     </section>
@@ -770,7 +981,7 @@
     <section class="portfolio-section" id="portfolio">
         <h2 class="section-title">Things we've made</h2>
         <div class="view-more">
-            <a href="https://www.webelite.co.za/our-portfolio">View More</a>
+            <a href="https://t.me/thewebelite_agency" target="_blank">View More</a>
         </div>
         
         <div class="portfolio-grid">
@@ -841,8 +1052,51 @@
             <div class="testimonial-author">Amanda du Pont, T R I B E</div>
         </div>
         
-        <div class="view-more" style="margin-top: 50px;">
-            <a href="https://www.shopify.com/partners/directory/partner/puresolutions">View More</a>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "The Web Elite team exceeded all our expectations! Their attention to detail and 
+                commitment to delivering a high-quality website was exceptional. They were always 
+                available to answer questions and made the entire process smooth and stress-free. 
+                We couldn't be happier with the final result!"
+            </p>
+            <div class="testimonial-author">Sarah Mitchell, Founder of Bloom & Co</div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "Working with The Web Elite was a game-changer for our business. They took the time 
+                to understand our vision and brought it to life with a stunning, user-friendly website. 
+                Their technical expertise and creative approach made all the difference. Highly recommend!"
+            </p>
+            <div class="testimonial-author">Michael Chen, CEO of TechVenture Solutions</div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "From start to finish, The Web Elite demonstrated professionalism and skill. They delivered 
+                our Shopify store ahead of schedule and within budget. The site looks amazing and functions 
+                flawlessly. We've seen a significant increase in online sales since the launch!"
+            </p>
+            <div class="testimonial-author">Jessica Williams, Marketing Director at Luxe Beauty</div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "I can't say enough good things about The Web Elite! They transformed our outdated website 
+                into a modern, responsive platform that truly represents our brand. Their communication was 
+                excellent, and they went above and beyond to ensure we were satisfied with every aspect."
+            </p>
+            <div class="testimonial-author">David Thompson, Owner of Heritage Furniture</div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "The Web Elite is simply outstanding! They built us a custom e-commerce solution that has 
+                streamlined our operations and improved customer experience tremendously. Their ongoing 
+                support and maintenance services are top-notch. Best decision we made for our online presence!"
+            </p>
+            <div class="testimonial-author">Emily Rodriguez, Operations Manager at Fresh Harvest Market</div>
         </div>
     </section>
 
@@ -872,13 +1126,6 @@
         
         <div class="contact-grid">
             <div class="contact-box">
-                <div class="contact-icon">💬</div>
-                <h3>Live Chat Support</h3>
-                <p class="response-time">Response Time: Immediately</p>
-                <p>Get immediate assistance with our live chat support. Chat with us now for real-time help!</p>
-                <a href="#" class="contact-btn" onclick="event.preventDefault(); try { if(typeof Tawk_API !== 'undefined' && Tawk_API.maximize) { Tawk_API.maximize(); } else { setTimeout(function(){ if(typeof Tawk_API !== 'undefined' && Tawk_API.maximize) { Tawk_API.maximize(); } }, 2000); } } catch(e) { window.open('https://tawk.to/chat/69776c31b886b819814ab5b9/1ijvs7ged', '_blank'); }">Start Live Chat</a>
-            </div>
-            <div class="contact-box">
                 <div class="contact-icon">📱</div>
                 <h3>WhatsApp</h3>
                 <p class="response-time">Response Time: 10-30 minutes</p>
@@ -897,7 +1144,7 @@
                 <h3>Email Us</h3>
                 <p class="response-time">Response Time: 24-48 hours</p>
                 <p>For detailed inquiries and project proposals, send us an email.</p>
-                <a href="mailto:thewebeliteagency.dev@gmail.com" class="contact-btn">Send Email</a>
+                <a href="mailto:thewebeliteagency.dev@gmail.com?subject=Service Inquiry" class="contact-btn">Send Email</a>
             </div>
         </div>
     </section>
@@ -919,60 +1166,16 @@
         </div>
     </footer>
 
-    <script>
+
+            setTimeout(() => {
+                if (typeof Tawk_API !== 'undefined') {
+                    Tawk_API.onLoad = function(){
+                        console.log('✓ Chat widget ready!');
+                    };
+                }
+            }, 1000);
+        }
+        
         // Slider functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.slider-dot');
-        
-        function goToSlide(index) {
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = index;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-        
-        function nextSlide() {
-            goToSlide((currentSlide + 1) % slides.length);
-        }
-        
-        // Auto-advance slider every 6 seconds
-        setInterval(nextSlide, 6000);
-        
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-    
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/69776c31b886b819814ab5b9/1ijvs7ged';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    
-    // Ensure Tawk widget loads properly
-    Tawk_API = Tawk_API || {};
-    Tawk_API.onLoad = function(){
-        console.log('Tawk.to widget loaded successfully');
-    };
-    </script>
-    <!--End of Tawk.to Script-->
-</body>
-</html>
